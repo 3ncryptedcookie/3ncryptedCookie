@@ -1,0 +1,29 @@
+﻿@model IEnumerable<EncryptedCookie.Models.Post>
+
+
+<h3>Admin Dashboard</h3>
+<br />
+
+<p>@Html.ActionLink("Create New Post", "Create")</p>
+
+<table class="table table-bordered">
+    <tr>
+        <th>Title</th>
+        <th>Description</th>
+        <th>Date Created</th>
+        <th>Date Published</th>
+        <th>Date Modified</th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@Html.DisplayFor(modelItem => item.Title)</td>
+            <td>@Html.DisplayFor(modelItem => item.Body)</td>
+            <td>@Html.DisplayFor(modelItem => item.DateCreated)</td>
+            <td>@Html.DisplayFor(modelItem => item.DatePublished)</td>
+            <td>@Html.DisplayFor(modelItem => item.DateModified)</td>
+        </tr>
+    }
+
+</table>
