@@ -6,24 +6,30 @@
 
 <p>@Html.ActionLink("Create New Post", "Create")</p>
 
-<table class="table table-bordered">
+<table class="table">
     <tr>
         <th>Title</th>
         <th>Description</th>
         <th>Date Created</th>
         <th>Date Published</th>
         <th>Date Modified</th>
+        <th>View | Edit | Delete</th>
     </tr>
 
     @foreach (var item in Model)
     {
-        <tr>
-            <td>@Html.DisplayFor(modelItem => item.Title)</td>
-            <td>@Html.DisplayFor(modelItem => item.Body)</td>
-            <td>@Html.DisplayFor(modelItem => item.DateCreated)</td>
-            <td>@Html.DisplayFor(modelItem => item.DatePublished)</td>
-            <td>@Html.DisplayFor(modelItem => item.DateModified)</td>
-        </tr>
+    <tr>
+        <td>@Html.DisplayFor(modelItem => item.Title)</td>
+        <td>@Html.DisplayFor(modelItem => item.Body)</td>
+        <td>@Html.DisplayFor(modelItem => item.DateCreated)</td>
+        <td>@Html.DisplayFor(modelItem => item.DatePublished)</td>
+        <td>@Html.DisplayFor(modelItem => item.DateModified)</td>
+        <td>
+            @Html.ActionLink("View", "View", new { id = item.Id }) |
+            @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+        </td>
+    </tr>
     }
 
 </table>
